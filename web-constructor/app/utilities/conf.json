@@ -1,0 +1,29 @@
+{
+    "color":{
+        "theme":         "dark",
+        "dark":          "#0c0a10",
+        "darkRgb":       "12,10,16",
+        "darkHsl":       "260,23%",
+        "light":         "#e4e0eb",
+        "lightRgb":      "255,255,255",
+        "lightHsl":      "0,0%",
+        "primary":       "#f28b50",
+        "primaryRgb":    "242,139,80",
+        "primaryHsl":    "22,86%",
+        "secondary":     "#7e3c90",
+        "secondaryRgb":  "126,60,144",
+        "secondaryHsl":  "287,41%",
+        "success":       "#50f270",
+        "successRgb":    "80,242",
+        "successHsl":    "132,86%",
+        "info":          "#59bfd9",
+        "infoRgb":       "89,191,217",
+        "infoHsl":       "192,63%",
+        "warning":       "#D96459",
+        "warningRgb":    "217,100,89",
+        "warningHsl":    "5,63%",
+        "danger":        "#A64962",
+        "dangerRgb":     "166,73,98",
+        "dangerHsl":     "344,39%"
+    }
+}

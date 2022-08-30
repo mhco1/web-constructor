@@ -1,0 +1,12 @@
+/* @import '/node_modules/antd/dist/antd.dark.css'; */
+
+html, body{
+  height: 100%,
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: black; */
+}

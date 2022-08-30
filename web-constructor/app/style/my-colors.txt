@@ -1,0 +1,7 @@
+primary    #f28b50;
+secondary  #7e3c90;
+success    #50f270;
+info       #59bfd9;
+warning    #D96459;
+danger     #A64962;
+dark       #0c0a10;
