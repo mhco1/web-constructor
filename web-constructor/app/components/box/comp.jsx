@@ -1,57 +1,90 @@
-import {Space} from 'antd';
+import { Badge } from 'antd';
 import styled from 'styled-components';
-import {useThemeSwitcher} from 'react-css-theme-switcher';
-import {conf} from '/app/utilities/utilities.js'
 
-var styleArm ={
-    text: (props)=>(props.fill?
-        'color: '+conf.color[props.textColor]+';':''),
+var objStyle = {
+    'badge':  `
+        padding: 0px 4px;
+        z-index: 10;
+        & > *{
+            margin: 1px;
+        }
 
-    border: (props)=> (!(props.fill)?
-        'border-color: var(--primary-color);'
-        :'border-color: transparent;'),
-
-    boxShadow: (props)=> (!(props.fill)?
-        'box-shadow: inset 0px 0px 2px var(--primary-color);':''),
-
-    background: (props)=>(props.fill?
-        'background-color: '+conf.color[props.theme]+';':''),
+    `,
+    '!badge':  `        
+        padding: 7px;
+        margin: 5px;
+    `,
+    'round':  'border-radius: 90px;',
+    '!round': 'border-radius: 4px;',
+    '!fill': 'border: 1px solid;',
+    'fill badge':   'background-color: var(--s-color);',
+    'fill !badge':  'background-color: var(--mp-color);',
+    '!fill badge':  'border-color: var(--s-color);',
+    '!fill !badge': 'border-color: var(--p-color);',
 }
 
 var Style = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-    padding: 10px;
-    margin: 5px;
+    ${(props)=>{
+        var res = '';
+        var {objStyle, _keys} = props;
 
+        for(var key in objStyle){
+            var rule = true;
+            var ruleArr = key.split(' ');
+            ruleArr.forEach((el,id) => {
+                if(rule === false){return}
+                rule = el[0] == '!'?
+                    !_keys.includes(el.slice(1)):
+                    _keys.includes(el)
+                })
+            rule && (res += objStyle[key] + " \n ");
+        }
 
-    border: 1px solid;
-    ${styleArm.border}
-    border-radius: 4px;
-
-    ${styleArm.boxShadow}
-    ${styleArm.background}
-
-    /* >*{
-        ${styleArm.text}
-    } */
+        return res;
+    }}
 `;
 
-function Box(props){
-    var {currentTheme} = useThemeSwitcher();
-    var send = {}
+/* function Style_(props) {
+    return (
+        <>
+            <Style className={props._keys.includes('fill') ? 'invert' : ''} {...props}>
+                {props.children}
+            </Style>
+        </>
+    )
+} */
 
-    send.fill = Object.keys(props).includes('fill');
-    send.theme = (currentTheme=='dark'?'light':'dark');
-    send.textColor = currentTheme;
+function Box(props) {
+    var send = {};
+    var res = props.children;
+    send.objStyle = objStyle;
+    send._keys = Object.keys(props);
+
+    if (send._keys.includes('badge')){
+        res = (
+            <Badge count={
+                <Style {...send}>
+                    {props.badge}
+                </Style>
+            }>
+                {props.children}
+            </Badge>
+        )
+    } else {
+        res = (
+            <Style {...send}>
+                {props.children}
+            </Style>
+        )
+    }
 
     return (
         <>
-            <Style {...send}>
-                <Space direction='vertical'>{props.children}</Space>
-            </Style>
+            {res}
         </>
     )
 }

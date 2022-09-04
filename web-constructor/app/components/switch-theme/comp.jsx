@@ -6,18 +6,18 @@ import {conf} from '/app/utilities/utilities.js';
 
 var Style = styled.div`
     .ant-switch{
-        background-color: ${props => conf.color[props.theme=='dark'?'light':'dark']};
+        background-color: var(--ms-color);
         background-image: none;
     }
 
     .ant-switch-handle::before{
-        background-color: ${props => conf.color[props.theme]};
+        background-color: var(--mp-color);
     }
 `
 
 function SwitchTheme(props){
     var [themeState, setThemeState] = useState(conf.color.theme=='dark'?'light':'dark');
-    var {switcher,currentTheme} = useThemeSwitcher();
+    var {switcher} = useThemeSwitcher();
 
     function changeTheme(){
         setThemeState(prev =>(prev=='dark'?'light':'dark'));
@@ -26,7 +26,7 @@ function SwitchTheme(props){
 
     return (
         <>
-            <Style theme={currentTheme}>
+            <Style>
                 <Switch defaultChecked onChange={changeTheme} />
             </Style>
         </>

@@ -10,3 +10,48 @@ body{
     align-items: center;
     /* background-color: black; */
 }
+
+body .invert{
+  --mp-color: var(--mss-color);
+  --ms-color: var(--mpp-color);
+}
+
+.primary{
+   background-color: var(--p-color) !important;
+   border-color:  var(--p-color) !important;
+  }
+
+.secondary{
+   background-color: var(--s-color) !important;
+   border-color:  var(--s-color) !important;
+  }
+
+.success{
+   background-color: var(--success-color) !important;
+   border-color:  var(--success-color) !important;
+  }
+
+.link{
+   background-color: var(--link-color) !important;
+   border-color:  var(--link-color) !important;
+  }
+
+.warning{
+   background-color: var(--warning-color) !important;
+   border-color:  var(--warning-color) !important;
+  }
+
+.error{
+   background-color: var(--error-color) !important;
+   border-color:  var(--error-color) !important;
+  }
+
+.monoPrimary{
+   background-color: var(--mp-color) !important;
+   border-color:  var(--mp-color) !important;
+  }
+
+.monoSecondary{
+   background-color: var(--ms-color) !important;
+   border-color:  var(--ms-color) !important;
+  }

@@ -6,14 +6,22 @@
 @warning-color: #faad14;
 @error-color: #c33e32;
 @font-size-base: 14px;
-@text-color:#0c0a10;
+@text-color:var(--ms-color);
 @text-color-secondary:#8e2ea8;
 @border-radius-base: 2px;
 @border-color-base: #f16e22;
-@body-background:#e4e0eb;
+@body-background:var(--mp-color);
 @component-background:transparent;
 
-* {
-    --primary-color: @primary-color;
-    --secudary-color: @border-color-base;
+:root {
+    --success-color: @success-color;
+    --warning-color: @warning-color;
+    --error-color: @error-color;
+    --link-color: @link-color;
+    --p-color: @primary-color;
+    --s-color: @border-color-base;
+    --mp-color: #e4e0eb;
+    --ms-color: #0c0a10;
+    --mpp-color: #e4e0eb;
+    --mss-color: #0c0a10;
  }
