@@ -1,4 +1,6 @@
-var style = `
+import { createGlobalStyle } from 'styled-components';
+
+var Style = createGlobalStyle`
     html, body{
         height: 100%;
     }
@@ -26,7 +28,7 @@ function classStyle(){
         ['success','--success-color'],
         ['link','--link-color'],
         ['warning','--warning-color'],
-        ['error','--error-color'],
+        ['danger','--error-color'],
         ['monoPrimary','--mp-color'],
         ['monoSecondary','--ms-color'],
     ].forEach(el =>{
@@ -34,7 +36,11 @@ function classStyle(){
             .${el[0]}{
                 background-color: var(${el[1]}) !important;
                 border-color:  var(${el[1]}) !important;
-                color: #0c0a10;
+                color: #0c0a10 !important;
+
+                &:hover{
+                    opacity: 70%;
+                }
             }
 
             .${el[0]}Border{
@@ -46,9 +52,4 @@ function classStyle(){
     return res
 }
 
-export default function Style(){
-    return (
-    <>
-        <style id="myStyle">{style}</style>
-    </>
-)}
+export default Style

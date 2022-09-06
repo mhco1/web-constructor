@@ -38,8 +38,8 @@ var Style = styled.div`
             ruleArr.forEach((el,id) => {
                 if(rule === false){return}
                 rule = el[0] == '!'?
-                    !_keys.includes(el.slice(1)):
-                    _keys.includes(el)
+                    !(_keys.includes(el.slice(1)) || _keys.includes('$'+el.slice(1))):
+                    (_keys.includes(el) || _keys.includes('$'+el))
                 })
             rule && (res += objStyle[key] + " \n ");
         }
@@ -67,7 +67,7 @@ function Box(props) {
     if (send._keys.includes('badge')){
         res = (
             <Badge count={
-                <Style {...send}>
+                <Style {...props} {...send}>
                     {props.badge}
                 </Style>
             }>
@@ -76,7 +76,7 @@ function Box(props) {
         )
     } else {
         res = (
-            <Style {...send}>
+            <Style {...props} {...send}>
                 {props.children}
             </Style>
         )

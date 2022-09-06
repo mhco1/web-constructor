@@ -11,7 +11,7 @@ var index;
 export default index = (
   <>
     <Style/>
-    <ClassSelect data={['class 1','class 2','class 3']} />
+    <ClassSelect data={['class-1','class-2','class-3']} />
     <SwitchTheme />
   </>
 )
