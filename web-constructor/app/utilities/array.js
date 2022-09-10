@@ -1,11 +1,14 @@
-var array = {};
 
-array.remove = function (arr,i){
-    return [...arr.slice(0,i),...arr.slice(i+1)];
+Array.prototype.insert = function (el,i){
+    return [...this.slice(0,i),el,...this.slice(i)];
 }
 
-array.insert = function (arr,el,i){
-    return [...arr.slice(0,i),el,...arr.slice(i)];
+Array.prototype.change = function (el,i){
+    return [...this.slice(0,i),el,...this.slice(i+1)];
 }
 
-export default array;
+Array.prototype.remove = function (i){
+    return [...this.slice(0,i),...this.slice(i+1)];
+}
+
+export default Array;

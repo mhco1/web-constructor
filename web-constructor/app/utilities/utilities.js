@@ -1,14 +1,16 @@
 import conf from './conf.json' assert {type:'json'};
-import array from './array'
+import Array from './array'
 import generate from './generate'
+import useDef from './hooks/def'
 
 var utilities = {
     ...conf,
-    ...array,
-    ...generate
+    ...generate,
+    ...{useDef},
 }
 
 export {conf};
-export {array};
+export {Array};
 export {generate};
+export {useDef};
 export {utilities};
