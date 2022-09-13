@@ -1,17 +1,23 @@
-import SwitchTheme from '/app/components/switch-theme/comp';
-import { Button } from 'antd';
-//import DoomTree from '/app/components/dom-tree/comp'
-//import Box from './components/box/comp';
-import ClassSelect from '/app/components/class-select/comp'
-import { Switch } from 'antd';
 
-import Style from '/app/style/main.jsx';
+import { useState } from 'react';
+import conf from '/app/conf/conf.jsx'
+var { comp } = conf.dynamicImport()
 
-var index;
-export default index = (
+var exe = {
+  Test: (props)=><Test {...props} />
+};
+
+function Test(props){
+  return <p>Test1 - {props.children} - {props.text}</p>
+}
+
+var Comp = (name)=>(props={})=>(children)=>{
+  props.children = children
+  return exe[name]({...props})
+}
+
+export default (
   <>
-    <Style/>
-    <ClassSelect data={['class-1','class-2','class-3']} />
-    <SwitchTheme />
+    {comp`SwitchTheme`()()}
   </>
 )

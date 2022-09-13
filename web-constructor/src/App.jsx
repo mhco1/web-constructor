@@ -2,13 +2,10 @@
 import {ThemeSwitcherProvider} from 'react-css-theme-switcher';
 import {ConfigProvider} from 'antd';
 import ptBR from 'antd/lib/locale/pt_BR';
-import index from '/app/index.jsx';
-import {conf} from '/app/utilities/utilities.js'
 
-var theme = {
-  light: '/app/style/theme-light.less',
-  dark: '/app/style/theme-dark.less',
-};
+import conf from '/app/conf/conf.jsx'
+import index from '/app/index.jsx';
+import Style from '/app/style/main.jsx'
 
 ConfigProvider.config({
   loacale: ptBR
@@ -17,7 +14,8 @@ ConfigProvider.config({
 function App() {
   return (
     <ConfigProvider>
-      <ThemeSwitcherProvider defaultTheme={conf.color.theme} themeMap={theme}>
+      <ThemeSwitcherProvider defaultTheme={conf.theme.default} themeMap={conf.theme.theme}>
+        <Style />
         {index}
       </ThemeSwitcherProvider>
     </ConfigProvider>

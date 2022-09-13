@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-var Style = createGlobalStyle`
+var GlobalStyle = createGlobalStyle`
     html, body{
         height: 100%;
     }
@@ -52,4 +52,8 @@ function classStyle(){
     return res
 }
 
-export default Style
+export default function Style (){
+    return(<>
+        <GlobalStyle />
+    </>)
+}

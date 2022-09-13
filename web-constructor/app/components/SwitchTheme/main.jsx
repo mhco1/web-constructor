@@ -2,7 +2,8 @@ import {useState} from 'react';
 import {useThemeSwitcher} from 'react-css-theme-switcher';
 import {Switch} from 'antd';
 import styled from 'styled-components';
-import {conf} from '/app/utilities/utilities.js';
+import conf from '/app/conf/conf.jsx'
+
 
 var Style = styled.div`
     .ant-switch{
@@ -16,7 +17,7 @@ var Style = styled.div`
 `
 
 function SwitchTheme(props){
-    var [themeState, setThemeState] = useState(conf.color.theme=='dark'?'light':'dark');
+    var [themeState, setThemeState] = useState(conf.theme.default=='dark'?'light':'dark');
     var {switcher} = useThemeSwitcher();
 
     function changeTheme(){

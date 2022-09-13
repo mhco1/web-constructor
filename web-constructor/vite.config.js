@@ -1,10 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path';
-//import AntdThemePlugin from 'antd-theme/plugin';
-//import antdVar from './app/style/antd-var.json' assert {type: 'json'};
 
-//const AntdThemePlugin = require('antd-theme/plugin');
 const __dirname = path.resolve(path.dirname(''));
 
 // https://vitejs.dev/config/
@@ -30,18 +27,5 @@ export default defineConfig({
   },
   plugins: [
     react(),
-//    new AntdThemePlugin({
-//      variables: ['primary-color'],
-//      themes: [
-//        {
-//          name: 'dark',
-//          filename: require.resolve('antd/lib/style/themes/dark.less'),
-//        },
-//        {
-//          name: 'compact',
-//          filename: require.resolve('antd/lib/style/themes/compact.less'),
-//        },
-//      ],
-//    }),
   ],
 })

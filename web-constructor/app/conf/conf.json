@@ -1,6 +1,5 @@
 {
     "color":{
-        "theme":         "dark",
         "dark":          "#0c0a10",
         "darkRgb":       "12,10,16",
         "darkHsl":       "260,23%",
@@ -25,5 +24,12 @@
         "danger":        "#A64962",
         "dangerRgb":     "166,73,98",
         "dangerHsl":     "344,39%"
+    },
+    "theme":{
+        "default":"dark",
+        "theme":{
+            "dark":"/app/style/css/theme-dark.css",
+            "light":"/app/style/css/theme-light.css"
+        }
     }
 }
